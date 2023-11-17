@@ -1,0 +1,503 @@
+@charset "UTF-8";
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@300&display=swap");
+.game {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: repeat(8, 100px);
+  background: transparent;
+}
+
+.wall {
+  background-image: url(../asset/images/wall.jpg);
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+}
+
+.brick {
+  background-image: url(../asset/images/brick.jpeg);
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.card-game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 50px;
+  margin-left: 125vh;
+  margin-top: -80vh;
+  width: 300px;
+  height: 200px;
+  color: white;
+}
+
+.card-game .item {
+  border-radius: 50px;
+  margin: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.life {
+  font-size: 25px;
+  font-weight: 600;
+  background-image: url(../asset/images/vie.png);
+  height: 44px;
+  width: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character1 {
+  position: absolute;
+  top: 120px;
+  left: 130px;
+  width: 60px;
+  height: 100px;
+  background-image: url(../asset/images/character/perso1/perso1.png);
+  /* Ajustez les valeurs de background-position pour afficher la première image */
+  background-position: -47px -430px;
+}
+
+.character2 {
+  position: absolute;
+  top: 120px;
+  left: 830px;
+  width: 60px;
+  height: 100px;
+  background-image: url(../asset/images/character/perso2/perso2.png);
+  /* Ajustez les valeurs de background-position pour afficher la première image */
+  background-position: -190px -430px;
+}
+
+.character3 {
+  position: absolute;
+  top: 600px;
+  left: 130px;
+  width: 60px;
+  height: 100px;
+  background-image: url(../asset/images/character/perso3/perso3.png);
+  /* Ajustez les valeurs de background-position pour afficher la première image */
+  background-position: -330px -430px;
+}
+
+.character4 {
+  position: absolute;
+  top: 600px;
+  left: 830px;
+  width: 60px;
+  height: 100px;
+  background-image: url(../asset/images/character/perso4/perso4.png);
+  /* Ajustez les valeurs de background-position pour afficher la première image */
+  background-position: -260px -430px;
+}
+
+.bombe {
+  position: absolute;
+  overflow: hidden;
+  width: 32px;
+  height: 40px;
+  background-image: url(../asset/images/bombe.png);
+  /* Ajustez les valeurs de background-position pour afficher la première image */
+  background-position: -5px;
+}
+
+.explosion {
+  position: absolute;
+  width: 80px; /* Ajustez la largeur et la hauteur en fonction de vos besoins */
+  height: 80px;
+  background-image: url(../asset/images/explosion.gif);
+  background-size: cover;
+  animation: explode 1s steps(8) forwards; /* Créez une animation pour le GIF */
+  border-radius: 30%;
+}
+
+@keyframes explode {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.reward-speed {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(../asset/images/bonus_speed.png);
+  background-size: cover;
+  border-radius: 30%;
+}
+
+.reward-bomb {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(../asset/images/bonus_bombe.png);
+  background-size: cover;
+  border-radius: 30%;
+}
+
+.reward-fire {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(../asset/images/bonus_flame.png);
+  background-size: cover;
+  border-radius: 30%;
+}
+
+.log {
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+}
+
+.group {
+  position: relative;
+}
+
+.input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background: transparent;
+}
+
+.input:focus {
+  outline: none;
+}
+
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 200px;
+}
+
+.bar:before, .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+button {
+  align-items: center;
+  cursor: pointer;
+  margin-left: 30px;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 15px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #8db400, -6px -6px 12px #8fc300;
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.players_heading {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+  color: white;
+  margin-top: 20px;
+  font-family: "Handjet", cursive;
+}
+
+.card {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 500px;
+  height: 254px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  overflow: visible;
+}
+
+.card .item {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:hover {
+  transform: scale(0.95);
+  transition: all 0.3s;
+}
+
+.item svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 7px;
+}
+
+.item--1 {
+  background: #c7c7ff;
+  font-family: "Handjet", cursive;
+}
+
+.item--2 {
+  background: #f32121;
+  font-family: "Handjet", cursive;
+}
+
+.item--3 {
+  background: #9ff22e;
+  font-family: "Handjet", cursive;
+}
+
+.item--4 {
+  background: #ff00ff;
+  font-family: "Handjet", cursive;
+}
+
+.Player1, .Player2, .Player3, .Player4 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.text--1 {
+  color: rgb(149, 149, 255);
+}
+
+.text--2 {
+  color: rgb(252, 161, 71);
+}
+
+.text--3 {
+  color: rgb(66, 193, 110);
+}
+
+.base-timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-left: 595px;
+  margin-top: 50px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../asset/images/green_grass.jpeg);
+}
+
+html {
+  -webkit-text-size-adjust: none; /*─ Debug font size on iphone when landscape orientation ─*/
+  -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
+  -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/
+}
+
+html, body, nav, header, footer, div, span,
+h1, h2, h3, p,
+a, img,
+ul, li,
+table, form, label, input, textarea, select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+input, textarea, select {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+input::-ms-clear {
+  display: none; /*─ IE11 → remove cross to close ─*/
+}
+
+textarea {
+  overflow: auto; /*─ Hide scroll bar on IE ─*/
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, video, svg, picture {
+  display: block;
+}
+
+img, video {
+  width: 100%;
+  height: auto;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=styles.css.map */
